@@ -1,0 +1,21 @@
+==Typography
+
+Simple plugin to make text more readable by applying some typographic rules to string. It is intended to use for russian texts, but some english typography rules are also supported.
+
+
+==Example
+
+This plugin adds <tt>typography</tt> method for string:
+
+	'"Читаешь -- "Прокопьев любил солянку" -- и долго не можешь понять, почему солянка написана с маленькой буквы, ведь "Солянка" -- известный московский клуб."'.typography
+	# => '&#171;Читаешь&nbsp;&mdash; &#132;Прокопьев любил солянку&#147;&nbsp;&mdash; и&nbsp;долго не&nbsp;можешь понять, почему солянка написана с&nbsp;маленькой буквы, ведь &#132;Солянка&#147;&nbsp;&mdash; известный московский клуб.&#187;'
+
+It is better to use <tt>t</tt> helper in your views:
+
+	t 'This is a page title'
+	# => 'This is&nbsp;a&nbsp;page title'
+
+Plugin also replaces <tt>h</tt> helper and <tt>simple_format</tt> helpers to apply typography to their results.
+
+
+Copyright (c) 2008 Igor Gladkoborodov, released under the MIT license

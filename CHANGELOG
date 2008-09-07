@@ -1,0 +1,6 @@
+==Version 0.0.1
+
+* Replace quotes
+* Replace dash between words to &mdash;
+* Add non-brace space after small words
+* Insert <span class="nobr"></span> around small words separated by dash
