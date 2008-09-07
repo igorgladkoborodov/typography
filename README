@@ -15,7 +15,12 @@ It is better to use <tt>t</tt> helper in your views:
 	t 'This is a page title'
 	# => 'This is&nbsp;a&nbsp;page title'
 
-Plugin also replaces <tt>h</tt> helper and <tt>simple_format</tt> helpers to apply typography to their results.
+Plugin also replaces <tt>h</tt> and <tt>simple_format</tt> helpers to apply typography to their results.
+
+
+==Installation
+
+	script/plugin install git://github.com/varezhka/typography.git
 
 
 Copyright (c) 2008 Igor Gladkoborodov, released under the MIT license
