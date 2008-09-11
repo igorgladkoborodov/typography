@@ -17,6 +17,9 @@ describe TypographyHelper, 'with typography' do
     simple_format("I'm first\n\nAnd I&nbsp;am&nbsp;second").should == "<p>I&#146;m first</p>\n\n<p>And I&nbsp;am&nbsp;second</p>"
   end
 
+  it "should return '<p></p>' (simple_format of empty string) on simple_format(nil)" do
+    simple_format(nil).should == "<p></p>"
+  end
 end
 
 describe String, 'with typography' do
