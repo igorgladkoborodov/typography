@@ -3,7 +3,7 @@ module TypographyHelper
     str.to_s.typography(:escape_html => true)
   end
 
-  def t(str, options = {})
+  def ty(str, options = {})
     str.to_s.typography(options)
   end
 
