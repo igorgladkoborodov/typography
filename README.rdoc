@@ -1,0 +1,25 @@
+==Typography
+
+Simple plugin to make text more readable by applying some typographic rules to string. It is intended to use for russian texts, but some english typography rules are also supported.
+
+==Example
+
+This plugin adds .typography method for string:
+
+	'"Читаешь -- "Прокопьев любил солянку" -- и долго не можешь понять, почему солянка написана с маленькой буквы, ведь "Солянка" -- известный московский клуб."'.typography
+	# => '&#171;Читаешь&nbsp;&mdash; &#132;Прокопьев любил солянку&#147;&nbsp;&mdash; и&nbsp;долго не&nbsp;можешь понять, почему солянка написана с&nbsp;маленькой буквы, ведь &#132;Солянка&#147;&nbsp;&mdash; известный московский клуб.&#187;'
+
+It is better to use ty helper in your views:
+
+	ty 'This is a page title'
+	# => 'This is&nbsp;a&nbsp;page title'
+
+Plugin also replaces h and simple_format helpers to apply typography to their results.
+
+
+==Installation
+
+	script/plugin install git://github.com/varezhka/typography.git
+
+
+Copyright (c) 2008 Igor Gladkoborodov, released under the MIT license
