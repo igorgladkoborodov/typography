@@ -16,7 +16,8 @@ class String
 
     #mdash
     str.gsub!(/--/, '&mdash;')
-    str.gsub!(/(\w)\s+-\s*(\w)/, '\1&nbsp;&mdash; \2')
+    str.gsub!(/(\w)\s+-\s*(\w)/, '\1&nbsp;&mdash; \2') #todo symbol — – 
+    #todo Испанцы говорят, что целовать мужчину без усов, - всё равно что есть яйцо без соли
     str.gsub!(/\s+&mdash;/, '&nbsp;&mdash;')
 
     #nobr around dash-separated words

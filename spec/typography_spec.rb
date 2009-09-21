@@ -100,6 +100,10 @@ describe String, 'with typography' do
     'I want to be a scientist'.typography.should == 'I&nbsp;want to&nbsp;be&nbsp;a&nbsp;scientist'
   end
 
+  it "should insert &nbsp; after small words with ( or dash before it" do
+    'Apple (an orange)'.typography.should == 'Apple (an&nbsp;orange)'
+  end
+
   it "should not insert &nbsp; after small words if it has not space after" do
     'Хорошо бы.'.typography.should == 'Хорошо бы.'
     'Хорошо бы'.typography.should == 'Хорошо бы'
@@ -136,6 +140,10 @@ describe String, 'with typography' do
 
   it "should typography real world examples" do
     '"They are the most likely habitat that we\'re going to get to in the foreseeable future," said NASA Ames Research Center\'s Aaron Zent, the lead scientist for the probe being used to look for unfrozen water.'.typography.should == '&#147;They are the most likely habitat that we&#146;re going to&nbsp;get to&nbsp;in&nbsp;the foreseeable future,&#148; said NASA Ames Research Center&#146;s Aaron Zent, the lead scientist for the probe being used to&nbsp;look for unfrozen water.'
+  end
+  
+  if "should typography real wordl examples" do
+    'Фирменный стиль: от полиграфии к интернет-решениям (в рамках выставки «Дизайн и Реклама 2009»)'.typography.should == 'Фирменный стиль: от&nbsp;полиграфии к&nbsp;интернет-решениям (в&nbsp;рамках выставки «Дизайн и&nbsp;Реклама 2009»)'
   end
 
   # it "should fail" do
