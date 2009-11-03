@@ -16,18 +16,21 @@ class String
 
     #mdash
     str.gsub!(/--/, '&mdash;')
-    str.gsub!(/(\w)\s+-\s*(\w)/, '\1&nbsp;&mdash; \2') #todo symbol — – 
+    str.gsub!(/(\w|;)\s+(—|–|-)\s*(\w)/, '\1&nbsp;&mdash; \3')
     #todo Испанцы говорят, что целовать мужчину без усов, - всё равно что есть яйцо без соли
     str.gsub!(/\s+&mdash;/, '&nbsp;&mdash;')
 
-    #nobr around dash-separated words
-    str.gsub!(/(^|\s)(\w{1,3})-(\w{1,3})($|\s)/, '\1<span class="nobr">\2-\3</span>\4')
+    #nobr
+    #around dash-separated words (что-то)
+    str.gsub!(/(^|\s)((\w|0-9){1,3})-((\w|0-9){1,3})($|\s)/, '\1<span class="nobr">\2-\4</span>\6')
+    #1980-x почему-то
+    str.gsub!(/(^|\s)((\w|0-9)+)-((\w|0-9){1,3})($|\s)/, '\1<span class="nobr">\2-\4</span>\6')
 
     #non brake space
-    str.gsub!(/(^|\s)(\w{1,2})\s+([^\s])/i, '\1\2&nbsp;\3')
-    str.gsub!(/(^|\s)&([a-z]{2,}|#[\d]*);(\w{1,2})\s+([^\s])/i, '\1&\2;\3&nbsp;\4')
+    str.gsub!(/(^|\s|\()(\w{1,2})\s+([^\s])/i, '\1\2&nbsp;\3')
+    str.gsub!(/(^|\s|\()&([A-Za-z0-9]{2,8}|#[\d]*);(\w{1,2})\s+([^\s])/i, '\1&\2;\3&nbsp;\4') #entities
     str.gsub!(/(&nbsp;|&#161;)(\w{1,2})\s+([^\s])/i, '\1\2&nbsp;\3\4')
-
+  
     str.to_s
   end
 

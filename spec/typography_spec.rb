@@ -6,7 +6,7 @@ describe TypographyHelper, 'with typography' do
   include ActionView::Helpers::TagHelper
 
   it "should have t helper" do
-    t('typography me please').should == 'typography me&nbsp;please'
+    ty('typography me please').should == 'typography me&nbsp;please'
   end
 
   it "should typography output of h helper" do
@@ -142,10 +142,25 @@ describe String, 'with typography' do
     '"They are the most likely habitat that we\'re going to get to in the foreseeable future," said NASA Ames Research Center\'s Aaron Zent, the lead scientist for the probe being used to look for unfrozen water.'.typography.should == '&#147;They are the most likely habitat that we&#146;re going to&nbsp;get to&nbsp;in&nbsp;the foreseeable future,&#148; said NASA Ames Research Center&#146;s Aaron Zent, the lead scientist for the probe being used to&nbsp;look for unfrozen water.'
   end
   
-  if "should typography real wordl examples" do
+  it "should typography real wordl examples" do
     'Фирменный стиль: от полиграфии к интернет-решениям (в рамках выставки «Дизайн и Реклама 2009»)'.typography.should == 'Фирменный стиль: от&nbsp;полиграфии к&nbsp;интернет-решениям (в&nbsp;рамках выставки «Дизайн и&nbsp;Реклама 2009»)'
   end
 
+  it "should typography real world examples" do
+    'решениям (в рамках выставки'.typography.should == 'решениям (в&nbsp;рамках выставки'
+  end
+
+  it "should typography real world examples" do
+    'Реанимация живописи: «новые дикие» и «трансавангард» в ситуации арт-рынка 1980-х'.typography.should == 'Реанимация живописи: «новые дикие» и&nbsp;«трансавангард» в&nbsp;ситуации арт-рынка <span class="nobr">1980-х</span>'
+  end
+  
+  it "should typography real world examples" do
+    '«Искусство после философии&#187; – концептуальные стратегии Джозефа Кошута и Харальда Зеемана'.typography.should == '«Искусство после философии&#187;&nbsp;&mdash; концептуальные стратегии Джозефа Кошута и&nbsp;Харальда Зеемана'
+  end
+  
+
+  
+  
   # it "should fail" do
   #   1.should == 2
   # end
