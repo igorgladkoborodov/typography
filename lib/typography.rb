@@ -12,11 +12,11 @@ class String
     str.replace_quotes! '&#171;', '&#187;', '&#132;', '&#147;', 'а-яА-Я'
 
     #english quotes
-    str.replace_quotes!
+    str.replace_quotes! '&#147;', '&#148;', '&#145;', '&#146;', 'a-zA-Z'
 
     #mdash
     str.gsub!(/--/, '&mdash;')
-    str.gsub!(/(\w|;|,)\s+(—|–|-)\s*(\w)/, '\1&nbsp;&mdash; \3')
+    str.gsub!(/(\w|;|,)\s+(—|–|-)\s*(&#|\w)/, '\1&nbsp;&mdash; \3')
     str.gsub!(/\s+&mdash;/, '&nbsp;&mdash;')
 
     #nobr
@@ -65,4 +65,5 @@ class String
     str
   end
 end
+
 

@@ -85,6 +85,10 @@ describe String, 'with typography' do
     'word - word'.typography.should == 'word&nbsp;&mdash; word'
   end
 
+  it "should replace \"слово - \"слово\"\" to \"слово&nbsp;&mdash; &#171;слово&#187;\"" do
+    'слово - "слово"'.typography.should == 'слово&nbsp;&mdash; &#171;слово&#187;'
+  end
+
   it "should insert &nbsp; before each &mdash; if it has empty space before" do
     'Before &mdash; after'.typography.should == 'Before&nbsp;&mdash; after'
     'Before	 &mdash; after'.typography.should == 'Before&nbsp;&mdash; after'
@@ -169,3 +173,4 @@ describe String, 'with typography' do
   # end
 
 end
+
